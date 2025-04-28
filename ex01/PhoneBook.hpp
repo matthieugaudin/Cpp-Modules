@@ -1,28 +1,30 @@
 #ifndef PHONE_BOOK_HPP
 # define PHONE_BOOK_HPP
 
-# include <Contact.hpp>
 # include <iostream>
 # include <cstdlib>
+# include <string>
+# include "Contact.hpp"
 
 class PhoneBook {
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		// make it reading on stdin to get the data
-		void addContact(
-			const std::string firstName,
-			const std::string lastName,
-			const std::string nickName,
-			const std::string phoneNumber,
-			const std::string darkestSecret
-		);
+		void addContact(void);
 		void searchContact(void);
 		void exitProgram(void);
+
+		// setter
+		int getContactsNumber(void) const;
 	private:
 		Contact	_contacts[8];
-		int _contactsNumber;
-}
+		static int 	_contactsNumber;
+		void		_setContactField(
+			const std::string &prompt,
+			void (Contact::*setter)(const std::string value),
+			Contact &contact
+		);
+};
 
 #endif /* PHONE_BOOK_HPP */

@@ -1,4 +1,7 @@
-#include <iostream>
+#ifndef CONTACT_H
+# define CONTACT_H
+
+# include <iostream>
 
 class Contact {
     public:
@@ -24,4 +27,6 @@ class Contact {
         std::string	_nickName;
         std::string	_phoneNumber;
 		std::string	_darkestSecret;
-}
+};
+
+#endif /* CONTACT_H */

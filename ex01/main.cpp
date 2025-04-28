@@ -6,7 +6,7 @@
 /*   By: mgaudin <mgaudin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 20:59:54 by mgaudin           #+#    #+#             */
-/*   Updated: 2025/04/23 21:13:20 by mgaudin          ###   ########.fr       */
+/*   Updated: 2025/04/28 18:56:32 by mgaudin          ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	PhoneBook	phoneBook();
+	PhoneBook	phoneBook;
 	std::string input;
 
     while (true) {
@@ -25,7 +25,7 @@ int main(void)
 			phoneBook.addContact();
 		} else if (input == "SEARCH") {
 			phoneBook.searchContact();
-		} else if (input = "EXIT") {
+		} else if (input == "EXIT") {
 			phoneBook.exitProgram();
 		}
     }

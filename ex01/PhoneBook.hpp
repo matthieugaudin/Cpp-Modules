@@ -1,9 +1,9 @@
 #ifndef PHONE_BOOK_HPP
 # define PHONE_BOOK_HPP
 
-# include <iostream>
-# include <cstdlib>
+# include <sstream>
 # include <string>
+# include <cstdlib>
 # include "Contact.hpp"
 
 class PhoneBook {
@@ -11,16 +11,14 @@ class PhoneBook {
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void addContact(void);
-		void searchContact(void);
-		void exitProgram(void);
-
-		// setter
-		int getContactsNumber(void) const;
+		void 		addContact(void);
+		void 		searchContact(void);
+		std::string	formatField(const std::string &field);
 	private:
 		Contact	_contacts[8];
-		static int 	_contactsNumber;
-		void		_setContactField(
+		int		_contactIndex;
+		int		_contactNumber;
+		void	_setContactField(
 			const std::string &prompt,
 			void (Contact::*setter)(const std::string value),
 			Contact &contact

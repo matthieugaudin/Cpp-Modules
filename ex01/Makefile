@@ -1,6 +1,6 @@
 NAME = megaphone
 CC = c++
-CCFALGS = -Wall -Wextra -Werror -std=c++98
+CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Contact.cpp PhoneBook.cpp
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CCFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CCFLAGS) -c $^ -o $@
 
 clean:

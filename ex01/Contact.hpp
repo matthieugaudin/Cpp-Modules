@@ -1,5 +1,5 @@
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <iostream>
 
@@ -8,25 +8,23 @@ class Contact {
         Contact(void);
         ~Contact(void);
 
-        // setters
-        void setFirstName(const std::string firstName);
-        void setLastName(const std::string lastName);
-        void setNickName(const std::string nickName);
-        void setPhoneNumber(const std::string phoneNumber);
-        void setDarkestSecret(const std::string darkestSecret);
+        void    setFirstName(const std::string firstName);
+        void    setLastName(const std::string lastName);
+        void    setNickName(const std::string nickName);
+        void    setPhoneNumber(const std::string phoneNumber);
+        void    setDarkestSecret(const std::string darkestSecret);
 
-        // getters
         std::string getFirstName(void) const;
         std::string getLastName(void) const;
         std::string getNickName(void) const;
         std::string getPhoneNumber(void) const;
         std::string getDarkestSecret(void) const;
     private:
-        std::string	_firstName;
-        std::string	_lastName;
-        std::string	_nickName;
-        std::string	_phoneNumber;
-		std::string	_darkestSecret;
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickName;
+        std::string _phoneNumber;
+		std::string _darkestSecret;
 };
 
-#endif /* CONTACT_H */
+#endif /* CONTACT_HPP */

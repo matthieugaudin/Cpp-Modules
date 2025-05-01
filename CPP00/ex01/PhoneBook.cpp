@@ -64,6 +64,7 @@ void	PhoneBook::searchContact(void) {
 			str_i << i;
 			std::cout << std::string(9, ' ') + str_i.str();
 			str_i.str("");
+			str_i.clear();
 			std::cout << "|";
 			std::cout << formatField(this->_contacts[i].getFirstName());
 			std::cout << "|";

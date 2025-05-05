@@ -19,8 +19,7 @@ std::string	fileReplacer::_readSrcFilename(void) const
 	std::string		input;
 	std::string		buffer;
 	std::ifstream	srcFile;
-	
-	// add flags
+
 	srcFile.open(this->_srcFilename.c_str());
 	while (std::getline(srcFile, buffer))
 	{
@@ -36,11 +35,17 @@ std::string	fileReplacer::_replaceContent(std::string &input)
 	std::string	output;
 	size_t		i;
 
+	if (this->_search.length() == 0)
+	{
+		std::cerr << "replacer (error): can't replace nothing" << std::endl;
+		exit(0);
+	}
+
 	i = 0;
 	while (i < input.length())
 	{
 		if (input.substr(i, this->_search.length()).compare(this->_search) == 0) {
-			output.append(input.substr(i, this->_search.length()));
+			output.append(this->_replace);
 			i += this->_search.length();
 		} else {
 			output.append(1, input[i]);
@@ -53,9 +58,12 @@ std::string	fileReplacer::_replaceContent(std::string &input)
 void	fileReplacer::_writeDstFilename(std::string &output)
 {
 	this->_dstFilename = this->_srcFilename + ".replace";
-	std::ofstream	dst(this->_dstFilename.c_str());
-	dst << output;
-	dst.close();
+	std::ofstream	dstFile;
+
+	dstFile.open(this->_dstFilename.c_str());
+	dstFile << output;
+
+	dstFile.close();
 }
 
 void	fileReplacer::run(void)

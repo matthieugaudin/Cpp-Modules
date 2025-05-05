@@ -2,7 +2,7 @@ NAME = replacer
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp FileReplacer.cpp
+SRCS = main.cpp Harl.hpp Harl.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

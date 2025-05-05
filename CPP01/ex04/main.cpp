@@ -1,4 +1,4 @@
-#include "fileReplacer.hpp"
+#include "FileReplacer.hpp"
 
 int	main(int argc, char **argv)
 {
@@ -11,7 +11,7 @@ int	main(int argc, char **argv)
 		std::string	fileName = argv[1];
 		std::string	toFind = argv[2];
 		std::string	toReplace = argv[3];
-		fileReplacer	file(fileName, toFind, toReplace);
+		FileReplacer	file(fileName, toFind, toReplace);
 		file.run();
 	}
 }

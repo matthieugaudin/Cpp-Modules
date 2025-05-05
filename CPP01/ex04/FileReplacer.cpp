@@ -1,6 +1,6 @@
-#include "fileReplacer.hpp"
+#include "FileReplacer.hpp"
 
-fileReplacer::fileReplacer(
+FileReplacer::FileReplacer(
     std::string _srcFilename,
     std::string _search,
     std::string _replace
@@ -9,12 +9,12 @@ fileReplacer::fileReplacer(
 	return ;
 }
 
-fileReplacer::~fileReplacer(void)
+FileReplacer::~FileReplacer(void)
 {
 	return ;
 }
 
-std::string	fileReplacer::_readSrcFilename(void) const
+std::string	FileReplacer::_readSrcFilename(void) const
 {
 	std::string		input;
 	std::string		buffer;
@@ -35,7 +35,7 @@ std::string	fileReplacer::_readSrcFilename(void) const
 	return (input);
 }
 
-std::string	fileReplacer::_replaceContent(std::string &input)
+std::string	FileReplacer::_replaceContent(std::string &input)
 {
 	std::string	output;
 	size_t		i;
@@ -59,7 +59,7 @@ std::string	fileReplacer::_replaceContent(std::string &input)
 	return (output);
 }
 
-void	fileReplacer::_writeDstFilename(std::string &output)
+void	FileReplacer::_writeDstFilename(std::string &output)
 {
 	std::ofstream	dstFile;
 
@@ -70,7 +70,7 @@ void	fileReplacer::_writeDstFilename(std::string &output)
 	dstFile.close();
 }
 
-void	fileReplacer::run(void)
+void	FileReplacer::run(void)
 {
 	std::string	input = _readSrcFilename();
 	std::string output = _replaceContent(input);

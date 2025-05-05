@@ -6,15 +6,15 @@
 # include <iostream>
 # include <cstdlib>
 
-class fileReplacer {
+class FileReplacer {
     
 	public:
-		fileReplacer(
+		FileReplacer(
             std::string _srcFilename,
             std::string _search,
             std::string _replace
         );
-		~fileReplacer(void);
+		~FileReplacer(void);
 		void	run(void);
 
 	private:

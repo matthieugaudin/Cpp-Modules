@@ -1,6 +1,6 @@
 NAME = replacer
 CC = c++
-CCFLAGS = -g -Wall -Wextra -Werror -std=c++98
+CCFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp fileReplacer.cpp
 

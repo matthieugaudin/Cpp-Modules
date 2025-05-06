@@ -23,7 +23,7 @@ std::string	FileReplacer::_readSrcFilename(void) const
 	srcFile.open(this->_srcFilename.c_str(), std::ios::in);
 	if (!srcFile.is_open())
 	{
-		std::cerr << "replacer (error): file do not have correct rights" << std::endl;
+		std::cerr << "replacer (error): file doesn't exist / have correct rights" << std::endl;
 		exit (0);
 	}
 	while (std::getline(srcFile, buffer))

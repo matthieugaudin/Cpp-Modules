@@ -28,6 +28,4 @@ class FileReplacer {
 
 };
 
-// HOW TO CHECK IF THE FILE EXISTS
-
 #endif /* FILE_REPLACER_HPP */

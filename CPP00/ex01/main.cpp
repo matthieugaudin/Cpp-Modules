@@ -12,10 +12,16 @@
 
 #include "PhoneBook.hpp"
 
-int main(void) {
+int main(int argc, char **argv)
+{
+	(void)argv;
 	PhoneBook	phoneBook;
 	std::string input;
 
+	if (argc > 1) {
+		std::cout << "The program doesn't take arguments" << std::endl;
+		return (1);
+	}
     while (true) {
 		std::cout << "PhoneBook> ";
 		std::getline(std::cin, input);
@@ -24,7 +30,7 @@ int main(void) {
 		} else if (input == "SEARCH") {
 			phoneBook.searchContact();
 		} else if (input == "EXIT") {
-			exit(0);
+			return (0);
 		}
     }
 }

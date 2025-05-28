@@ -10,23 +10,6 @@ PhoneBook::~PhoneBook(void) {
 	return ;
 }
 
-void	PhoneBook::_setContactField(
-	const std::string &prompt,
-	void (Contact::*setter)(const std::string value),
-	Contact &contact
-) {
-	std::string input;
-
-	std::cout << prompt;
-	std::getline(std::cin, input);
-	while (input.length() == 0) {
-		std::cerr << "Contact Fields cannot be empty" << std::endl;
-		std::cout << prompt;
-		std::getline(std::cin, input);
-	}
-	(contact.*setter)(input);
-}
-
 void	PhoneBook::addContact(void) {
 	if (this->_contactNumber < 8)
 		this->_contactNumber++;
@@ -43,13 +26,6 @@ void	PhoneBook::addContact(void) {
 		this->_contactIndex = 0;
 	}
 	return ;
-}
-
-std::string	PhoneBook::formatField(const std::string &field) {
-	if (field.length() > 10)
-		return (field.substr(0, 9) + ".");
-	else
-		return (std::string(10 -  field.length(), ' ') + field);
 }
 
 void	PhoneBook::searchContact(void) {
@@ -87,4 +63,28 @@ void	PhoneBook::searchContact(void) {
 			}
 	}
 	return ;
+}
+
+std::string	PhoneBook::formatField(const std::string &field) {
+	if (field.length() > 10)
+		return (field.substr(0, 9) + ".");
+	else
+		return (std::string(10 -  field.length(), ' ') + field);
+}
+
+void	PhoneBook::_setContactField(
+	const std::string &prompt,
+	void (Contact::*setter)(const std::string value),
+	Contact &contact
+) {
+	std::string input;
+
+	std::cout << prompt;
+	std::getline(std::cin, input);
+	while (input.length() == 0) {
+		std::cerr << "Contact Fields cannot be empty" << std::endl;
+		std::cout << prompt;
+		std::getline(std::cin, input);
+	}
+	(contact.*setter)(input);
 }

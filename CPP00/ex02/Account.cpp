@@ -12,7 +12,7 @@ Account::Account( int initial_deposit ) {
 	Account::_nbAccounts++;
 	Account::_totalAmount += initial_deposit;
 
-	this->_accountIndex = this->_nbAccounts - 1;
+	this->_accountIndex = 	Account::_nbAccounts - 1;
 	this->_amount = initial_deposit;
 
 	Account::_displayTimestamp();
@@ -22,7 +22,7 @@ Account::Account( int initial_deposit ) {
 	std::cout << std::endl;
 	
 	return ;
-	
+
 }
 
 Account::~Account( void ) {
@@ -113,10 +113,10 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 		Account::_totalNbWithdrawals++;
 		
 		std::cout << withdrawal << ";";
-		std::cout << "amount:" << Account::checkAmount() << ";";
+		std::cout << "amount:" << this->checkAmount() << ";";
 		std::cout << "nb_withdrawals:" << this->_nbWithdrawals;
 		std::cout << std::endl;
-		
+	
 		return (true);
 	}
 }

@@ -72,6 +72,15 @@ std::string	PhoneBook::formatField(const std::string &field) {
 		return (std::string(10 -  field.length(), ' ') + field);
 }
 
+bool	PhoneBook::only_spaces(const std::string &input)
+{
+	for (int i = 0; input[i]; i++) {
+		if (!((input[i] <= 9 && input[i] >= 13) || input[i] == 32))
+			return (false);
+	}
+	return (true);
+}
+
 void	PhoneBook::_setContactField(
 	const std::string &prompt,
 	void (Contact::*setter)(const std::string value),
@@ -81,8 +90,8 @@ void	PhoneBook::_setContactField(
 
 	std::cout << prompt;
 	std::getline(std::cin, input);
-	while (input.length() == 0) {
-		std::cerr << "Contact Fields cannot be empty" << std::endl;
+	while (input.length() == 0 || only_spaces(input)) {
+		std::cerr << "Contact Fields cannot be empty or only composed of withespaces" << std::endl;
 		std::cout << prompt;
 		std::getline(std::cin, input);
 	}

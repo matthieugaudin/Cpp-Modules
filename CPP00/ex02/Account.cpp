@@ -124,11 +124,11 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 
 void	Account::_displayTimestamp( void ) {
 
-	time_t	now;
-	tm		*curr_time;
+	std::time_t	now;
+	std::tm		*curr_time;
 
-	now = time(NULL);
-	curr_time = localtime(&now);
+	now = std::time(NULL);
+	curr_time = std::localtime(&now);
 
 	std::cout << "[";
 	std::cout << 1900 + curr_time->tm_year;

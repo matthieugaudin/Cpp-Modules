@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = fixedPoint
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

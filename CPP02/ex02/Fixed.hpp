@@ -24,22 +24,22 @@ class Fixed
         int   				toInt( void ) const;
         // =, >, <, >=, <=, == and != comparaison operators
         Fixed				&operator=(const Fixed &rhs);
-        bool				operator>(const Fixed &rhs);
-        bool				operator<(const Fixed &rhs);
-        bool				operator>=(const Fixed &rhs);
-        bool				operator<=(const Fixed &rhs);
-        bool				operator==(const Fixed &rhs);
-        bool				operator!=(const Fixed &rhs);
+        bool				operator>(const Fixed &rhs) const;
+        bool				operator<(const Fixed &rhs) const;
+        bool				operator>=(const Fixed &rhs) const;
+        bool				operator<=(const Fixed &rhs) const;
+        bool				operator==(const Fixed &rhs) const;
+        bool				operator!=(const Fixed &rhs) const;
         // +, -, *, and / arithmetic operator
-        Fixed				operator+(const Fixed &rhs);
-        Fixed				operator-(const Fixed &rhs);
-        Fixed				operator*(const Fixed &rhs);
-        Fixed				operator/(const Fixed &rhs);
+        Fixed				operator+(const Fixed &rhs) const;
+        Fixed				operator-(const Fixed &rhs) const;
+        Fixed				operator*(const Fixed &rhs) const;
+        Fixed				operator/(const Fixed &rhs) const;
         // increment/decrement operators
         Fixed				&operator++(void);
         Fixed				&operator--(void);
-        Fixed				operator++(int);
-        Fixed				operator--(int);
+        Fixed				operator++(int) const;
+        Fixed				operator--(int) const;
         // four overloaded member function
         static Fixed		&min(Fixed &a, Fixed &b);
 		static const Fixed	&min(const Fixed &a, const Fixed &b);

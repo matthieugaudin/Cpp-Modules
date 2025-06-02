@@ -17,7 +17,7 @@ int main( void )
 }
 
 // TO DO
-// post/pre increment
 // 4 member functions
 // protect 0 division !
-// make a good main of test
+// make a good main of tests
+// add all const

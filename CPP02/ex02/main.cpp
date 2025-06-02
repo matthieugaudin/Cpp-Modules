@@ -59,5 +59,3 @@ int main( void )
 
     return 0;
 }
-
-// make a good main of tests

@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <cmath>
 
 const int	Fixed::_fractionalPart = 8;
 
@@ -8,6 +7,10 @@ Fixed::Fixed(void) : _rawValue(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
+/*
+value << _fractionalPart == value * 2 ^ _fractionalPart
+5 << 6 == 5 * 2 ^ 6 
+*/
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;

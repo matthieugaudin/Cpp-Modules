@@ -14,12 +14,10 @@ class Point
 		// anything else useful
 		const Fixed	&getX(void) const;
 		const Fixed	&getY(void) const;
-		// BSP algorithm
-		bool bsp( Point const a, Point const b, Point const c, Point const point);
-	private:
 		const Fixed	x;
 		const Fixed	y;
-		// anything else useful
 };
+
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif /* POINT_HPP */

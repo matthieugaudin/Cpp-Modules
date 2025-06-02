@@ -36,8 +36,3 @@ Point   &Point::operator=(const Point &rhs)
 	static_cast<Fixed>(this->y) = static_cast<Fixed>(rhs.getY());
 	return (*this);
 }
-
-bool	Point::bsp( Point const a, Point const b, Point const c, Point const point)
-{
-	return (true);
-}

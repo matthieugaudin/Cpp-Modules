@@ -106,7 +106,13 @@ Fixed   Fixed::operator*(const Fixed &rhs) const
 
 Fixed   Fixed::operator/(const Fixed &rhs) const
 {
-	return (Fixed(this->toFloat() / rhs.toFloat()));
+	if (rhs != 0) {
+		return (Fixed(this->toFloat() / rhs.toFloat()));
+	}
+	else {
+		std::cout << "division by zero is not authorized" << std::endl;
+		return (this->toFloat());
+	}
 }
 
 /*

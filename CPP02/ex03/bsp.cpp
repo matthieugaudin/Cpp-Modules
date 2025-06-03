@@ -34,7 +34,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	);
 
 	float res = areaTotal - (areaA + areaB + areaC);
-	if (fabs(res) < 0.0001 && !(areaA < 0.0001 || areaB < 0.0001 || areaC < 0.0001))
+	if (getAbsoluteValue(res) < 0.0001 && !(areaA < 0.0001 || areaB < 0.0001 || areaC < 0.0001))
 		return (true);
 	else
 		return (false);

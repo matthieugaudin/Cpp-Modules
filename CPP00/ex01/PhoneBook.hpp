@@ -6,24 +6,28 @@
 # include <cstdlib>
 # include "Contact.hpp"
 
-class PhoneBook {
+class PhoneBook
+{
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-
 		void 		addContact(void);
-		void 		searchContact(void);
-		std::string	formatField(const std::string &field);
+		void 		searchContact(void) const;
+
 	private:
 		Contact		_contacts[8];
 		int			_contactIndex;
 		int			_contactNumber;
-		static bool	only_spaces(const std::string &input);
 		void		_setContactField(
 			const std::string &prompt,
 			void (Contact::*setter)(const std::string value),
 			Contact &contact
 		);
-};
+		void	_displayContacts(void) const;
+		void	_displayContactInfos(void) const;
+	};
+	
+bool		onlySpaces(const std::string &input);
+std::string	formatField(const std::string &field);
 
 #endif /* PHONE_BOOK_HPP */

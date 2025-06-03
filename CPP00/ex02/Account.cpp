@@ -124,41 +124,12 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 
 void	Account::_displayTimestamp( void ) {
 
-	std::time_t	now;
-	std::tm		*curr_time;
+	char 		buffer[20];
+	std::time_t	now = std::time(NULL);;
+	std::tm		*curr_time = std::localtime(&now);
 
-	now = std::time(NULL);
-	curr_time = std::localtime(&now);
-
-	std::cout << "[";
-	std::cout << 1900 + curr_time->tm_year;
-	if (curr_time->tm_mon <= 9)
-		std::cout << "0" << curr_time->tm_mon;
-	else
-		std::cout << curr_time->tm_mon;
-	if (curr_time->tm_mday <= 9)
-		std::cout << "0" << curr_time->tm_mday;
-	else
-		std::cout << curr_time->tm_mday;
-
-	std::cout << "_";
-
-	if (curr_time->tm_hour <= 9)
-		std::cout << "0" << curr_time->tm_hour;
-	else
-		std::cout << curr_time->tm_hour;
-	if (curr_time->tm_min <= 9)
-		std::cout << "0" << curr_time->tm_min;
-	else
-		std::cout << curr_time->tm_min;
-	if (curr_time->tm_sec <= 9)
-		std::cout << "0" << curr_time->tm_sec;
-	else
-		std::cout << curr_time->tm_sec;
-	std::cout << "] ";
-
-	return ;
-
+	std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", curr_time);
+	std::cout << buffer;
 }
 
 void	Account::displayStatus( void ) const {

@@ -34,7 +34,7 @@ void	PhoneBook::_setContactField(
 	const std::string &prompt,
 	void (Contact::*setter)(const std::string value),
 	Contact &contact
-) {
+) const {
 	std::string input;
 
 	while (true)

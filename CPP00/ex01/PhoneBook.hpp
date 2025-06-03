@@ -22,7 +22,7 @@ class PhoneBook
 			const std::string &prompt,
 			void (Contact::*setter)(const std::string value),
 			Contact &contact
-		);
+		) const;
 		void	_displayContacts(void) const;
 		void	_displayContactInfos(void) const;
 	};

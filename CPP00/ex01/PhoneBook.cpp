@@ -51,6 +51,10 @@ void	PhoneBook::searchContact(void) {
 		}
 			std::cout << "Enter an index : ";
 			std::getline(std::cin, buffer);
+			if (std::cin.eof()) {
+				std::cout << std::endl;
+				exit (0);
+			}
 			index = buffer[0] - '0';
 			if (buffer.length() == 1 && (0 <= index && index <= this->_contactNumber - 1)) {
 				std::cout << "First Name : " << this->_contacts[index].getFirstName() << std::endl;
@@ -88,12 +92,18 @@ void	PhoneBook::_setContactField(
 ) {
 	std::string input;
 
-	std::cout << prompt;
-	std::getline(std::cin, input);
-	while (input.length() == 0 || only_spaces(input)) {
-		std::cerr << "Contact Fields cannot be empty or only composed of withespaces" << std::endl;
+	while (true)
+	{
 		std::cout << prompt;
 		std::getline(std::cin, input);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			exit (0);
+		} else if (input.length() == 0 || only_spaces(input)) {
+			std::cerr << "Contact Fields cannot be empty or only composed of withespaces" << std::endl;
+		} else {
+			(contact.*setter)(input);
+			return ;
+		}
 	}
-	(contact.*setter)(input);
 }

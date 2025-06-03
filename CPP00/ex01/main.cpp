@@ -25,6 +25,10 @@ int main(int argc, char **argv)
     while (true) {
 		std::cout << "PhoneBook> ";
 		std::getline(std::cin, input);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			return (0);
+		}
 		if (input == "ADD") {
 			phoneBook.addContact();
 		} else if (input == "SEARCH") {

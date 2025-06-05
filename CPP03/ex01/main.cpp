@@ -4,7 +4,9 @@
 int	main(void)
 {
     ScavTrap scavBob("Scavbob");
+    ScavTrap ok = scavBob;
 
+    ok.attack("bob");
     scavBob.attack("Someone");
     scavBob.attack("Someone");
     scavBob.beRepaired(10);

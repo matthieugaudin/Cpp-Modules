@@ -35,5 +35,6 @@ int	main(void)
     bob_cpy.attack("alice");
     bob_cpy.takeDamage(5);
     bob_cpy.beRepaired(0);
+
     return (0);
 }

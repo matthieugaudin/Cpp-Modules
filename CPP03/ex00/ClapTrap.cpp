@@ -52,11 +52,7 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (amount > 10) {
-		std::cout << "Can't be repaired with more than 10 hit points" << std::endl;
-	} else if (this->_hitPoints + amount > 10) {
-		std::cout << "Can't have more than 10 hit points" << std::endl;
-	} else if (this->_hitPoints > 0 && this->_energyPoints > 0) {
+	if (this->_hitPoints > 0 && this->_energyPoints > 0) {
 		this->_hitPoints += amount;	
 		this->_energyPoints--;
 		std::cout	<< "ClapTrap " << this->_name
@@ -71,9 +67,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (amount > 10) {
-		std::cout << "Can't take more than 10 damage points" << std::endl;
-	} else if (this->_hitPoints > 0 && this->_energyPoints > 0) {
+	if (this->_hitPoints > 0 && this->_energyPoints > 0) {
 		this->_hitPoints -= amount;
 		if (this->_hitPoints < 0)
 			this->_hitPoints = 0;

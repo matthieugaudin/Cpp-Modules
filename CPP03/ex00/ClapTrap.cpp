@@ -72,7 +72,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		if (this->_hitPoints < 0)
 			this->_hitPoints = 0;
 		std::cout	<< "ClapTrap " << this->_name
-					<< " has be attacked with " << amount << " points of damage"
+					<< " has been attacked with " << amount << " points of damage"
 					<< std::endl;
 	} else {
 		std::cout	<< "ClapTrap " << this->_name

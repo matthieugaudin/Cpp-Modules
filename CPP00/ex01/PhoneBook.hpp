@@ -3,6 +3,7 @@
 
 # include <sstream>
 # include <string>
+# include <stdexcept>
 # include "Contact.hpp"
 
 class PhoneBook
@@ -10,20 +11,20 @@ class PhoneBook
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-		bool 		addContact(void);
-		bool 		searchContact(void) const;
+		void 		addContact(void);
+		void 		searchContact(void) const;
 
 	private:
 		Contact		_contacts[8];
 		int			_contactIndex;
 		int			_contactNumber;
-		bool		_setContactField(
+		void		_setContactField(
 			const std::string &prompt,
 			void (Contact::*setter)(const std::string value),
 			Contact &contact
 		) const;
 		void	_displayContacts(void) const;
-		bool	_displayContactInfos(void) const;
+		void	_displayContactInfos(void) const;
 	};
 	
 bool		onlySpaces(const std::string &input);

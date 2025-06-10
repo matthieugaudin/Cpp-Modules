@@ -12,26 +12,25 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-bool	PhoneBook::addContact(void) {
+void	PhoneBook::addContact(void) {
 	if (this->_contactNumber < 8)
 		this->_contactNumber++;
 
-	if (!this->_setContactField("First Name : ", &Contact::setFirstName, this->_contacts[this->_contactIndex]) || \
-		!this->_setContactField("Last Name : ", &Contact::setLastName, this->_contacts[this->_contactIndex]) || \
-		!this->_setContactField("Nick Name : ", &Contact::setNickName, this->_contacts[this->_contactIndex]) || \
-		!this->_setContactField("Phone Number : ", &Contact::setPhoneNumber, this->_contacts[this->_contactIndex]) || \
-		!this->_setContactField("Darkeset secret : ", &Contact::setDarkestSecret, this->_contacts[this->_contactIndex]))
-			return (false);
+	this->_setContactField("First Name : ", &Contact::setFirstName, this->_contacts[this->_contactIndex]);
+	this->_setContactField("Last Name : ", &Contact::setLastName, this->_contacts[this->_contactIndex]);
+	this->_setContactField("Nick Name : ", &Contact::setNickName, this->_contacts[this->_contactIndex]);
+	this->_setContactField("Phone Number : ", &Contact::setPhoneNumber, this->_contacts[this->_contactIndex]);
+	this->_setContactField("Darkeset secret : ", &Contact::setDarkestSecret, this->_contacts[this->_contactIndex]);
 
 	if (this->_contactIndex < 7) {
 		this->_contactIndex++;
 	} else {
 		this->_contactIndex = 0;
 	}
-	return (true);
+	return ;
 }
 
-bool	PhoneBook::_setContactField(
+void	PhoneBook::_setContactField(
 	const std::string &prompt,
 	void (Contact::*setter)(const std::string value),
 	Contact &contact
@@ -44,26 +43,24 @@ bool	PhoneBook::_setContactField(
 		std::getline(std::cin, input);
 		if (std::cin.eof()) {
 			std::cout << std::endl;
-			return (false);
+			throw std::runtime_error("end-of-file reached");
 		} else if (input.length() == 0 || onlySpaces(input)) {
-			std::cerr << "Contact Fields cannot be empty or only composed of withespaces" << std::endl;
+			std::cerr << "Contact Fields cannot be empty or only composed of withespaces\n" << std::endl;
 		} else {
 			(contact.*setter)(input);
-			return (true);
+			return ;
 		}
 	}
 }
 
-bool	PhoneBook::searchContact(void) const
+void	PhoneBook::searchContact(void) const
 {
 	if (this->_contactNumber == 0) {
 		std::cout << "You don't have any contact yet" << std::endl;
 	} else {
 		this->_displayContacts();
-		if (!this->_displayContactInfos())
-			return (false);
+		this->_displayContactInfos();
 	}
-	return (true);
 }
 
 void	PhoneBook::_displayContacts(void) const
@@ -85,7 +82,7 @@ void	PhoneBook::_displayContacts(void) const
 	}
 }
 
-bool	PhoneBook::_displayContactInfos(void) const 
+void	PhoneBook::_displayContactInfos(void) const 
 {
 	std::string			buffer;
 	int					index;
@@ -94,7 +91,7 @@ bool	PhoneBook::_displayContactInfos(void) const
 	std::getline(std::cin, buffer);
 	if (std::cin.eof()) {
 		std::cout << std::endl;
-		return (false);
+		throw std::runtime_error("end-of-file reached");
 	}
 	index = buffer[0] - '0';
 	if (buffer.length() == 1 && (0 <= index && index <= this->_contactNumber - 1)) {
@@ -106,5 +103,4 @@ bool	PhoneBook::_displayContactInfos(void) const
 	} else {
 		std::cerr << "This contact doesn't exist" << std::endl;
 	}
-	return (true);
 }

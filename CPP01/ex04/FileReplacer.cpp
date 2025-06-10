@@ -21,10 +21,8 @@ std::string	FileReplacer::_readSrcFilename(void) const
 	std::ifstream	srcFile;
 
 	srcFile.open(this->_srcFilename.c_str(), std::ios::in);
-	if (!srcFile.is_open())
-	{
-		std::cerr << "replacer (error): file doesn't exist / have correct rights" << std::endl;
-		exit (0);
+	if (!srcFile.is_open()) {
+		throw std::runtime_error("replacer (error): file doesn't exist / have correct rights\n");
 	}
 	while (std::getline(srcFile, buffer))
 	{
@@ -40,10 +38,8 @@ std::string	FileReplacer::_replaceContent(std::string &input)
 	std::string	output;
 	size_t		i;
 
-	if (this->_search.length() == 0)
-	{
-		std::cerr << "replacer (error): can't replace nothing" << std::endl;
-		exit(0);
+	if (this->_search.length() == 0) {
+		throw std::runtime_error("replacer (error): can't replace nothing\n");
 	}
 	i = 0;
 	while (i < input.length())
@@ -72,7 +68,11 @@ void	FileReplacer::_writeDstFilename(std::string &output)
 
 void	FileReplacer::run(void)
 {
-	std::string	input = _readSrcFilename();
-	std::string output = _replaceContent(input);
-	_writeDstFilename(output);
+	try {
+		std::string	input = _readSrcFilename();
+		std::string output = _replaceContent(input);
+		_writeDstFilename(output);
+	} catch (const std::exception &e) {
+		std::cerr << "Error : " << e.what();
+	}
 }

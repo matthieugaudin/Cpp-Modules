@@ -4,7 +4,7 @@
 # include <string>
 # include <fstream>
 # include <iostream>
-# include <cstdlib>
+# include <stdexcept>
 
 class FileReplacer {
     

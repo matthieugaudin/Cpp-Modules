@@ -6,7 +6,7 @@
 /*   By: mgaudin <mgaudin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 20:59:54 by mgaudin           #+#    #+#             */
-/*   Updated: 2025/04/29 19:14:00 by mgaudin          ###   ########.fr       */
+/*   Updated: 2025/06/10 10:13:39 by mgaudin          ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -27,12 +27,14 @@ int main(int argc, char **argv)
 		std::getline(std::cin, input);
 		if (std::cin.eof()) {
 			std::cout << std::endl;
-			return (0);
+			return (1);
 		}
 		if (input == "ADD") {
-			phoneBook.addContact();
+			if (!phoneBook.addContact())
+				return (1);
 		} else if (input == "SEARCH") {
-			phoneBook.searchContact();
+			if (!phoneBook.searchContact())
+				return (1);
 		} else if (input == "EXIT") {
 			return (0);
 		}

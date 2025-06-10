@@ -12,25 +12,26 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-void	PhoneBook::addContact(void) {
+bool	PhoneBook::addContact(void) {
 	if (this->_contactNumber < 8)
 		this->_contactNumber++;
 
-	this->_setContactField("First Name : ", &Contact::setFirstName, this->_contacts[this->_contactIndex]);
-	this->_setContactField("Last Name : ", &Contact::setLastName, this->_contacts[this->_contactIndex]);
-	this->_setContactField("Nick Name : ", &Contact::setNickName, this->_contacts[this->_contactIndex]);
-	this->_setContactField("Phone Number : ", &Contact::setPhoneNumber, this->_contacts[this->_contactIndex]);
-	this->_setContactField("Darkeset secret : ", &Contact::setDarkestSecret, this->_contacts[this->_contactIndex]);
+	if (!this->_setContactField("First Name : ", &Contact::setFirstName, this->_contacts[this->_contactIndex]) || \
+		!this->_setContactField("Last Name : ", &Contact::setLastName, this->_contacts[this->_contactIndex]) || \
+		!this->_setContactField("Nick Name : ", &Contact::setNickName, this->_contacts[this->_contactIndex]) || \
+		!this->_setContactField("Phone Number : ", &Contact::setPhoneNumber, this->_contacts[this->_contactIndex]) || \
+		!this->_setContactField("Darkeset secret : ", &Contact::setDarkestSecret, this->_contacts[this->_contactIndex]))
+			return (false);
 
 	if (this->_contactIndex < 7) {
 		this->_contactIndex++;
 	} else {
 		this->_contactIndex = 0;
 	}
-	return ;
+	return (true);
 }
 
-void	PhoneBook::_setContactField(
+bool	PhoneBook::_setContactField(
 	const std::string &prompt,
 	void (Contact::*setter)(const std::string value),
 	Contact &contact
@@ -43,24 +44,26 @@ void	PhoneBook::_setContactField(
 		std::getline(std::cin, input);
 		if (std::cin.eof()) {
 			std::cout << std::endl;
-			exit (0);
+			return (false);
 		} else if (input.length() == 0 || onlySpaces(input)) {
 			std::cerr << "Contact Fields cannot be empty or only composed of withespaces" << std::endl;
 		} else {
 			(contact.*setter)(input);
-			return ;
+			return (true);
 		}
 	}
 }
 
-void	PhoneBook::searchContact(void) const
+bool	PhoneBook::searchContact(void) const
 {
 	if (this->_contactNumber == 0) {
 		std::cout << "You don't have any contact yet" << std::endl;
 	} else {
 		this->_displayContacts();
-		this->_displayContactInfos();
+		if (!this->_displayContactInfos())
+			return (false);
 	}
+	return (true);
 }
 
 void	PhoneBook::_displayContacts(void) const
@@ -82,7 +85,7 @@ void	PhoneBook::_displayContacts(void) const
 	}
 }
 
-void	PhoneBook::_displayContactInfos(void) const 
+bool	PhoneBook::_displayContactInfos(void) const 
 {
 	std::string			buffer;
 	int					index;
@@ -91,7 +94,7 @@ void	PhoneBook::_displayContactInfos(void) const
 	std::getline(std::cin, buffer);
 	if (std::cin.eof()) {
 		std::cout << std::endl;
-		exit (0);
+		return (false);
 	}
 	index = buffer[0] - '0';
 	if (buffer.length() == 1 && (0 <= index && index <= this->_contactNumber - 1)) {
@@ -103,4 +106,5 @@ void	PhoneBook::_displayContactInfos(void) const
 	} else {
 		std::cerr << "This contact doesn't exist" << std::endl;
 	}
+	return (true);
 }

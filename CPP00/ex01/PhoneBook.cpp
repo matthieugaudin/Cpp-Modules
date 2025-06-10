@@ -72,13 +72,10 @@ void	PhoneBook::_displayContacts(void) const
 		std::cout << std::string(9, ' ') + str_i.str();
 		str_i.str("");
 		str_i.clear();
-		std::cout << "|";
-		std::cout << formatField(this->_contacts[i].getFirstName());
-		std::cout << "|";
-		std::cout << formatField(this->_contacts[i].getLastName());
-		std::cout << "|";
-		std::cout << formatField(this->_contacts[i].getNickName());
-		std::cout << std::endl;
+		std::cout	<< "|" << std::setw(10) << formatField(this->_contacts[i].getFirstName())
+					<< "|" << std::setw(10) << formatField(this->_contacts[i].getLastName())
+					<< "|" << std::setw(10) << formatField(this->_contacts[i].getNickName())
+					<< std::endl;
 	}
 }
 

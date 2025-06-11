@@ -1,11 +1,11 @@
 #include "Point.hpp"
 
-Point::Point(void) : x(0), y(0)
+Point::Point(void) : _x(0), _y(0)
 {
     return ;
 }
 
-Point::Point(const float x, const float y) : x(x), y(y)
+Point::Point(const float x, const float y) : _x(x), _y(y)
 {
 	return ;
 }
@@ -22,17 +22,17 @@ Point::~Point(void)
 
 const Fixed	&Point::getX(void) const
 {
-	return (this->x);
+	return (this->_x);
 }
 
 const Fixed	&Point::getY(void) const
 {
-	return (this->y);
+	return (this->_y);
 }
 
 Point   &Point::operator=(const Point &rhs)
 {
-	static_cast<Fixed>(this->x) = static_cast<Fixed>(rhs.getX());
-	static_cast<Fixed>(this->y) = static_cast<Fixed>(rhs.getY());
+	static_cast<Fixed>(this->_x) = static_cast<Fixed>(rhs.getX());
+	static_cast<Fixed>(this->_y) = static_cast<Fixed>(rhs.getY());
 	return (*this);
 }

@@ -14,8 +14,9 @@ class Point
 		// anything else useful
 		const Fixed	&getX(void) const;
 		const Fixed	&getY(void) const;
-		const Fixed	x;
-		const Fixed	y;
+	private:
+		const Fixed	_x;
+		const Fixed	_y;
 };
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point);

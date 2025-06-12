@@ -38,8 +38,15 @@ FragTrap	&FragTrap::operator=(const FragTrap &rhs)
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout	<< "FragTrap "
-				<< _name
-				<< " has given you a high fives !"
-				<< std::endl;
+	if (_energyPoints > 0 && _hitPoints > 0) {
+		std::cout	<< "FragTrap "
+					<< _name
+					<< " has given you a high fives !"
+					<< std::endl;
+	} else {
+		std::cout	<< "ScavTrap "
+		<< _name
+		<< " can't do a high fives since he has no more hit points / energy points"
+		<< std::endl;
+	}
 }

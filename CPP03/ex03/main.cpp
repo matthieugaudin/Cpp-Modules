@@ -22,5 +22,6 @@ int	main(void)
     DiamondTrap alice1(bob);
 
     alice1.attack("someone");
+    alice1.highFivesGuys();
     return (0);
 }

@@ -4,7 +4,7 @@
 # include "ClapTrap.hpp"
 # include <iostream>
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		ScavTrap(void);
@@ -14,6 +14,10 @@ class ScavTrap : public ClapTrap
 		ScavTrap	&operator=(const ScavTrap &rhs);
 		void		attack(const std::string& target);
 		void		guardGate(void);
+	protected:
+		int		_ScavEnergyPoints;
+		int		_ScavHitPoints;
+		int		_ScavAttackDamage;
 };
 
 #endif /* SCAV_TRAP_HPP */

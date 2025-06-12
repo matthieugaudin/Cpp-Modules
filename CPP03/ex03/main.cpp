@@ -1,32 +1,26 @@
+#include "DiamondTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
 int	main(void)
 {
-    FragTrap fragBob("Fragbob");
-    FragTrap ok = fragBob;
-    ScavTrap scavBob("Scavbob");
-    ScavTrap okBob = scavBob;
+    DiamondTrap bob("bob");
+    bob.attack("someone");
+    bob.highFivesGuys();
+    bob.guardGate();
+    bob.whoAmI();
+    bob.beRepaired(50);
+    bob.takeDamage(150);
+    bob.attack("someone");
+    bob.beRepaired(50);
 
-    okBob.attack("bob");
-    scavBob.attack("Someone");
-    scavBob.attack("Someone");
-    scavBob.beRepaired(10);
-    scavBob.takeDamage(50);
-    scavBob.takeDamage(65);
-    scavBob.attack("Someone");
-    scavBob.beRepaired(10);
-    scavBob.guardGate();
+    DiamondTrap alice;
 
-    ok.attack("bob");
-    fragBob.attack("Someone");
-    fragBob.attack("Someone");
-    fragBob.beRepaired(10);
-    fragBob.highFivesGuys();
-    fragBob.takeDamage(50);
-    fragBob.takeDamage(65);
-    fragBob.attack("Someone");
-    fragBob.beRepaired(10);
+    alice = bob;
+    alice.guardGate();
+    DiamondTrap alice1(bob);
+
+    alice1.attack("someone");
     return (0);
 }

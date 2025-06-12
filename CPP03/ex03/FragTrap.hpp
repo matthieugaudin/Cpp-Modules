@@ -4,7 +4,7 @@
 # include "ClapTrap.hpp"
 # include <iostream>
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap(void);
@@ -13,6 +13,10 @@ class FragTrap : public ClapTrap
 		~FragTrap(void);
 		FragTrap	&operator=(const FragTrap &rhs);
 		void		highFivesGuys(void);
+	protected:
+		int		_FragEnergyPoints;
+		int		_FragHitPoints;
+		int		_FragAttackDamage;
 };
 
 #endif /* FRAG_TRAP_HPP */

@@ -2,6 +2,7 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -11,6 +12,8 @@ class Dog : public Animal
         virtual ~Dog(void);
         Dog  &operator=(const Dog &rhs);
         virtual void    makeSound(void) const;
+    private:
+        Brain *_brain;
 };
 
 #endif /* DOG_HPP */

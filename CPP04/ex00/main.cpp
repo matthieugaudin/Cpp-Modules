@@ -1,6 +1,8 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
 
 int main()
@@ -8,6 +10,8 @@ int main()
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
+    const WrongAnimal *wrongMeta = new WrongAnimal();
+    const WrongAnimal *wrongI = new WrongCat();
 
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
@@ -19,6 +23,12 @@ int main()
     delete meta;
     delete j;
     delete i;
+
+    wrongMeta->makeSound();
+    wrongI->makeSound();
+
+    delete wrongMeta;
+    delete wrongI;
 
     return 0;
 }

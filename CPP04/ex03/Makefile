@@ -1,9 +1,8 @@
 NAME = abstractClass
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS =	main.cpp AMateria.cpp Cure.cpp Ice.cpp \
-		Character.cpp
+SRCS =	AMateria.cpp  Character.cpp  Cure.cpp  Ice.cpp  main.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -1,6 +1,10 @@
 #ifndef I_CHARACTER_HPP
 # define I_CHARACTER_HPP
 
+# include "AMateria.hpp"
+
+class AMateria;
+
 class ICharacter
 {
     public:

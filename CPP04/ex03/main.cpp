@@ -1,4 +1,9 @@
-
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
 
 int main()
 {
@@ -22,16 +27,3 @@ int main()
 
     return 0;
 }
-
-
-/*
-TO DO
-
-- remember addresses in Character
-- implement learnMateria
-- implement createMateria
-- compile the code
-- succed subject tests
-- add other tests
-- constructor messages ?
-*/

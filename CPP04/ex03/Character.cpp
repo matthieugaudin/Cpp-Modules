@@ -22,7 +22,8 @@ Character::~Character(void)
 {
 	std::cout << "Character destructor called" << std::endl;
 	for (size_t i = 0; i < 4; ++i) {
-		delete this->_materias[i];
+		if (this->_materias[i] != NULL)
+			delete this->_materias[i];
 	}
 }
 
@@ -49,21 +50,23 @@ std::string const & Character::getName() const
 void Character::equip(AMateria* m)
 {
 	for (size_t i = 0; i < 4; ++i) {
-		if (this->_materias[i] == NULL)
+		if (this->_materias[i] == NULL) {
 			this->_materias[i] = m;
+			return ;
+		}
 	}
 }
 
 void Character::unequip(int idx)
 {
-	if ((idx <= 0 && idx >= 3) && this->_materias[idx] != NULL) {
+	if ((idx >= 0 && idx <= 3) && this->_materias[idx] != NULL) {
 		this->_materias[idx] = NULL;
 	}
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if ((idx <= 0 && idx >= 3) && this->_materias[idx] != NULL) {
+	if ((idx >= 0 && idx <= 3) && this->_materias[idx] != NULL) {
 		this->_materias[idx]->use(target);
 	}
 }

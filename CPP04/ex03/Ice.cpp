@@ -4,7 +4,7 @@ Ice::Ice(void)
     : AMateria()
 {
 	std::cout << "Ice constructor called" << std::endl;
-    this->_type = "Ice";
+    this->_type = "ice";
 }
 
 Ice::Ice(const Ice &src)

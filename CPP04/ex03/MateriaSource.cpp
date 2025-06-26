@@ -28,16 +28,26 @@ MateriaSource  &MateriaSource::operator=(const MateriaSource &rhs)
 MateriaSource::~MateriaSource(void)
 {
 	for (size_t i = 0; i < 4; ++i) {
-		delete this->_materias[i];
+		if (this->_materias[i] != NULL)
+			delete (this->_materias[i]);
 	}
 }
 
-void MateriaSource::learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria* m)
 {
-
+	for (size_t i = 0; i < 4; ++i) {
+		if (this->_materias[i] == NULL) {
+			this->_materias[i] = m;
+			return ;
+		}
+	}
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	
+	for (size_t i = 0; i < 4; ++i) {
+		if (this->_materias[i] && this->_materias[i]->getType() == type)
+			return (this->_materias[i]->clone());
+	}
+	return (0);
 }

@@ -4,6 +4,7 @@ Dog::Dog(void)
 	: Animal()
 {
 	std::cout << "Dog constructor called" << std::endl;
+	this->_type = "Dog";
 }
 
 Dog::Dog(const Dog &src)

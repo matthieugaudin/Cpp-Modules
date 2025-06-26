@@ -7,6 +7,7 @@ MateriaSource::MateriaSource(void)
 }
 
 MateriaSource::MateriaSource(const MateriaSource &src)
+	: _materias()
 {
 	*this = src;
 }
@@ -33,11 +34,11 @@ MateriaSource::~MateriaSource(void)
 	}
 }
 
-void MateriaSource::learnMateria(AMateria* m)
+void MateriaSource::learnMateria(AMateria* materia)
 {
 	for (size_t i = 0; i < 4; ++i) {
 		if (this->_materias[i] == NULL) {
-			this->_materias[i] = m;
+			this->_materias[i] = materia;
 			return ;
 		}
 	}

@@ -13,6 +13,7 @@ Character::Character(const std::string name)
 }
 
 Character::Character(const Character &src)
+	: _materias()
 {
 	std::cout << "Character copy constructor called" << std::endl;
 	*this = src;

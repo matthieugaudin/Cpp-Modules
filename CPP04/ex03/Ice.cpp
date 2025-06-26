@@ -3,20 +3,17 @@
 Ice::Ice(void)
     : AMateria()
 {
-	std::cout << "Ice constructor called" << std::endl;
     this->_type = "ice";
 }
 
 Ice::Ice(const Ice &src)
 	: AMateria(src)
 {
-	std::cout << "Ice copy constructor called" << std::endl;
 	*this = src;
 }
 
 Ice::~Ice(void)
 {
-	std::cout << "Ice destructor called" << std::endl;
 }
 
 Ice	&Ice::operator=(const Ice &rhs)

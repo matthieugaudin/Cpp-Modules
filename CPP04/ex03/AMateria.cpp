@@ -3,24 +3,24 @@
 AMateria::AMateria(void)
 	: _type("Default")
 {
-	std::cout << "AMateria constructor called" << std::endl;
+	return ;
 }
 
 AMateria::AMateria(std::string const & type)
 	: _type(type)
 {
-	std::cout << "AMateria constructor called" << std::endl;
+	return ;
 }
 
 AMateria::AMateria(const AMateria &src)
 {
-	std::cout << "AMateria copy constructor called" << std::endl;
+	return ;
 	*this = src;
 }
 
 AMateria::~AMateria(void)
 {
-	std::cout << "AMateria destructor called" << std::endl;
+	return ;
 }
 
 AMateria	&AMateria::operator=(const AMateria &rhs)

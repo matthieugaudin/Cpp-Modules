@@ -3,20 +3,18 @@
 Cure::Cure(void)
     : AMateria()
 {
-	std::cout << "Cure constructor called" << std::endl;
     this->_type = "cure";
 }
 
 Cure::Cure(const Cure &src)
 	: AMateria(src)
 {
-	std::cout << "Cure copy constructor called" << std::endl;
 	*this = src;
 }
 
 Cure::~Cure(void)
 {
-	std::cout << "Cure destructor called" << std::endl;
+	return ;
 }
 
 Cure	&Cure::operator=(const Cure &rhs)

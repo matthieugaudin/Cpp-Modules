@@ -3,25 +3,23 @@
 Character::Character(void)
 	: _name("Default"), _materias()
 {
-	std::cout << "Character constructor called" << std::endl;
+	return ;
 }
 
 Character::Character(const std::string name)
 	: _name(name), _materias()
 {
-	std::cout << "Character constructor called" << std::endl;
+	return ;
 }
 
 Character::Character(const Character &src)
 	: _materias()
 {
-	std::cout << "Character copy constructor called" << std::endl;
 	*this = src;
 }
 
 Character::~Character(void)
 {
-	std::cout << "Character destructor called" << std::endl;
 	for (size_t i = 0; i < 4; ++i) {
 		if (this->_materias[i] != NULL)
 			delete this->_materias[i];

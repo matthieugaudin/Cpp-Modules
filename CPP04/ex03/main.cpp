@@ -27,9 +27,11 @@ int main()
 /*
 TO DO
 
-- implement character/Icharacter
-    -> deep copy : OK 
-    -> remember addresses : to do
-- implement MateriaSource/IMateriaSource
+- remember addresses in Character
+- implement learnMateria
+- implement createMateria
+- compile the code
+- succed subject tests
+- add other tests
 - constructor messages ?
 */
